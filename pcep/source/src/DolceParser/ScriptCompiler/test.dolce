@@ -1,0 +1,113 @@
+/*
+ * Copyright (C) 2019  Atos Spain SA. All rights reserved.
+ * 
+ * This file is part of pCEP.
+ * 
+ * pCEP is free software: you can redistribute it and/or modify it under the 
+ * terms of the Apache License, Version 2.0 (the License);
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * The software is provided "AS IS", without any warranty of any kind, express or implied,
+ * including but not limited to the warranties of merchantability, fitness for a particular
+ * purpose and noninfringement, in no event shall the authors or copyright holders be 
+ * liable for any claim, damages or other liability, whether in action of contract, tort or
+ * otherwise, arising from, out of or in connection with the software or the use or other
+ * dealings in the software.
+ * 
+ * See README file for the full disclaimer information and LICENSE file for full license 
+ * information in the project root.
+ * 
+ * Authors:  Atos Research and Innovation, Atos SPAIN SA
+ */
+
+external time WINDOW  =  12:12:12;
+
+
+
+complex Alarm
+{
+	payload 
+	{
+		int bla = 45,
+		int bli = 3344,
+		int bla = 333
+	};
+	
+	group CustomerId;
+	
+//	detect (a or b and c or q) or z
+	detect aaa after bbb after ccc;
+	
+	detect (a or b or c)
+	or ATMWithdrawal	
+	where a.a + sum(Withdrawal.Amount) > TOTAL_AMOUNT
+	in [ WINDOW ];
+}
+
+
+complex PurchaseAlarm
+{
+	group CreditCardNumber;
+	
+	// Change $ -> @ ?
+	detect Purchase
+//	where count(Purchase) >= 2 && (Purchae@12 . x == Purchase)
+//	where (count(Purchase) >= 2)   && xss@@.ddx == 23 || xz@32.zx == -4 
+	where 91 * 32 + 1 && (2 || 3) || 22 && (33 || 55)
+	//(Purchase$$.Location - Purchase$1.Location > 200)
+	in [ 1 hour ];
+}
+
+
+external int TOTAL_AMOUNT = 100;
+external pos POSITION = 34.3\34.2\4.4;
+
+
+
+
+event YES 
+{
+}
+
+
+event Withdrawal	// root-event 
+{
+	
+	use 
+	{
+		int  Type, 
+		int  Amount, 
+		int CustomerId 
+	};
+	
+}
+
+
+event TEST 
+{
+	accept { (((zzz == ty) && (4 == 4)) || ((((4))==5))) };
+	accept { 34 == 5 };
+	accept { 34 };
+	accept { (77) };
+	accept { ((((77)))) };
+	accept { ((88)) && 99 };
+	accept { (11 || 22) };
+
+}
+	
+
+
+
+
+event ATMWithdrawal  // pseudo-event 
+{
+	accept { ((((Typexxxx)) != 2) || (A==3))  };
+}
+
+
+event CheckWithdrawal
+{
+	accept { ( (Y != 3) && ( (Type != 3) && (Yss != 3) ) ) };
+}
+

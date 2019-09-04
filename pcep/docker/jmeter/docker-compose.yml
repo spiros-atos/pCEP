@@ -1,0 +1,10 @@
+#bcep:
+    #build: ./bcep
+    #image: danielcalvo/cep:performance 
+    #ports:
+    #    - "29654/udp:29654/udp"
+jmeter:
+    #build: ./jmeter
+    image: danielcalvo/jmeter
+    command: jmeter.sh -n -t UDPRequest.jmx
+    net: "host"

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{2B3384FF-A39E-4C3C-B1D6-1FA7BA1E801D}</ProjectGuid>
+    <RootNamespace>pCEPsim</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>
+      </SDLCheck>
+      <ConformanceMode>false</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\a696457\dev\CLASS\P0267_RefImpl\P0267_RefImpl\Tests\Catch2;C:\Users\a696457\dev\CLASS\P0267_RefImpl\P0267_RefImpl\P0267_RefImpl\cairo\win32;C:\Users\a696457\dev\CLASS\P0267_RefImpl\P0267_RefImpl\P0267_RefImpl\cairo;C:\Users\a696457\dev\CLASS\P0267_RefImpl\P0267_RefImpl\P0267_RefImpl;C:\Users\a696457\dev\CLASS\P0267_RefImpl\P0267_RefImpl\Tests\Catch2\single_include;C:\Users\a696457\dev\vcpkg\installed\x64-windows\include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;UNICODE;_UNICODE;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <OmitFramePointers />
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <CompileAs>CompileAsCpp</CompileAs>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>C:\Users\a696457\dev\CLASS\P0267_RefImpl\Debug\P0267_RefImpl\P0267_RefImpl\cairo\win32\Debug\io2d_cairo_win32.lib;C:\Users\a696457\dev\CLASS\P0267_RefImpl\Debug\P0267_RefImpl\P0267_RefImpl\cairo\Debug\io2d_cairo.lib;C:\Users\a696457\dev\CLASS\P0267_RefImpl\Debug\P0267_RefImpl\P0267_RefImpl\Debug\io2d_core.lib;C:\Users\a696457\dev\vcpkg\installed\x64-windows\debug\lib\libpng16d.lib;C:\Users\a696457\dev\vcpkg\installed\x64-windows\debug\lib\graphicsmagick.lib;C:\Users\a696457\dev\vcpkg\installed\x64-windows\debug\lib\cairod.lib;C:\Users\a696457\dev\vcpkg\installed\x64-windows\lib\pixman-1.lib;C:\Users\a696457\dev\vcpkg\installed\x64-windows\lib\freetype.lib;C:\Users\a696457\dev\vcpkg\installed\x64-windows\debug\lib\fontconfig.lib;C:\Users\a696457\dev\vcpkg\installed\x64-windows\lib\bz2.lib;C:\Users\a696457\dev\vcpkg\installed\x64-windows\debug\lib\jpeg.lib;C:\Users\a696457\dev\vcpkg\installed\x64-windows\lib\tiff.lib;C:\Users\a696457\dev\vcpkg\installed\x64-windows\debug\lib\expat.lib;C:\Users\a696457\dev\vcpkg\installed\x64-windows\debug\lib\lzma.lib;C:\Users\a696457\dev\vcpkg\installed\x64-windows\debug\lib\libiconv.lib;C:\Users\a696457\dev\vcpkg\installed\x64-windows\debug\lib\libcharset.lib;C:\Users\a696457\dev\vcpkg\installed\x64-windows\debug\lib\zlibd.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>
+      </SDLCheck>
+      <ConformanceMode>false</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\dev\CLASS\P0267_RefImpl\P0267_RefImpl\P0267_RefImpl;C:\dev\CLASS\P0267_RefImpl\P0267_RefImpl\P0267_RefImpl\cairo;C:\dev\CLASS\P0267_RefImpl\P0267_RefImpl\P0267_RefImpl\cairo\win32;C:\dev\CLASS\Fusion-UKF-CPP\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;UNICODE;_UNICODE;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <OmitFramePointers>false</OmitFramePointers>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <CompileAs>CompileAsCpp</CompileAs>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>C:\dev\CLASS\P0267_RefImpl\Debug\P0267_RefImpl\P0267_RefImpl\cairo\win32\Debug\io2d_cairo_win32.lib;C:\dev\CLASS\P0267_RefImpl\Debug\P0267_RefImpl\P0267_RefImpl\cairo\Debug\io2d_cairo.lib;C:\dev\CLASS\P0267_RefImpl\Debug\P0267_RefImpl\P0267_RefImpl\Debug\io2d_core.lib;C:\dev\CLASS\vcpkg\installed\x64-windows\debug\lib\graphicsmagick.lib;C:\dev\CLASS\vcpkg\installed\x64-windows\debug\lib\cairod.lib;C:\dev\CLASS\vcpkg\installed\x64-windows\lib\pixman-1.lib;C:\dev\CLASS\vcpkg\installed\x64-windows\lib\freetype.lib;C:\dev\CLASS\vcpkg\installed\x64-windows\debug\lib\fontconfig.lib;C:\dev\CLASS\vcpkg\installed\x64-windows\lib\bz2.lib;C:\dev\CLASS\vcpkg\installed\x64-windows\lib\jpeg.lib;C:\dev\CLASS\vcpkg\installed\x64-windows\lib\tiff.lib;C:\dev\CLASS\vcpkg\installed\x64-windows\debug\lib\expat.lib;C:\dev\CLASS\vcpkg\installed\x64-windows\lib\lzma.lib;C:\dev\CLASS\vcpkg\installed\x64-windows\debug\lib\libiconv.lib;C:\dev\CLASS\vcpkg\installed\x64-windows\debug\lib\libcharset.lib;C:\dev\CLASS\vcpkg\installed\x64-windows\debug\lib\libpng16d.lib;C:\dev\CLASS\vcpkg\installed\x64-windows\debug\lib\zlibd.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;ntdll.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>C:/Users/a696457/dev/CLASS/P0267_RefImpl/Debug/P0267_RefImpl/Samples/CPULoad/Debug/cpuload.lib</ImportLibrary>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="cep_sim.cpp" />
+    <ClCompile Include="datapoint.cpp" />
+    <ClCompile Include="data_source.cpp" />
+    <ClCompile Include="kalman.cpp" />
+    <ClCompile Include="KMP.cpp" />
+    <ClCompile Include="KSP.cpp" />
+    <ClCompile Include="KSU.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="profiler_win.cpp" />
+    <ClCompile Include="vehicle.cpp" />
+    <ClCompile Include="vehicle_object.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="car.h" />
+    <ClInclude Include="cep_sim.h" />
+    <ClInclude Include="datapoint.h" />
+    <ClInclude Include="data_source.h" />
+    <ClInclude Include="kalman.h" />
+    <ClInclude Include="KMP.h" />
+    <ClInclude Include="KSP.h" />
+    <ClInclude Include="KSU.h" />
+    <ClInclude Include="kutils.h" />
+    <ClInclude Include="line.h" />
+    <ClInclude Include="point.h" />
+    <ClInclude Include="profiler.h" />
+    <ClInclude Include="constants.h" />
+    <ClInclude Include="vehicle.h" />
+    <ClInclude Include="vehicle_object.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

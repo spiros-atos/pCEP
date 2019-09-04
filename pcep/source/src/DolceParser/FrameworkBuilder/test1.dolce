@@ -1,0 +1,283 @@
+/*
+ * Copyright (C) 2019  Atos Spain SA. All rights reserved.
+ * 
+ * This file is part of pCEP.
+ * 
+ * pCEP is free software: you can redistribute it and/or modify it under the 
+ * terms of the Apache License, Version 2.0 (the License);
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * The software is provided "AS IS", without any warranty of any kind, express or implied,
+ * including but not limited to the warranties of merchantability, fitness for a particular
+ * purpose and noninfringement, in no event shall the authors or copyright holders be 
+ * liable for any claim, damages or other liability, whether in action of contract, tort or
+ * otherwise, arising from, out of or in connection with the software or the use or other
+ * dealings in the software.
+ * 
+ * See README file for the full disclaimer information and LICENSE file for full license 
+ * information in the project root.
+ * 
+ * Authors:  Atos Research and Innovation, Atos SPAIN SA
+ */
+
+external int bla = 3;
+external int hello = 17;
+external duration jaHallo = 12 minutes;
+external duration MY_DURATION = 3 seconds;
+external time T_TIME = 12:12:12;
+
+event e1
+{
+	use { int r, int q, int z, int nogwat, int notused };
+	
+	accept { r == 18 };
+}
+
+event e6
+{
+	use { int x, int z };
+}
+
+complex MY
+{
+//	payload { int z = 3 };
+	payload { int r 
+	= sum(e6.z) + avg(q) + diff(q) + diff(r, e1@5.q) 
+	* count(e1) };
+	
+	group r;
+	
+	lasts e6;
+	
+	detect e1 where sum(r) == 4;
+}
+
+
+/*
+
+event formula
+{
+	use { int a, int b, int c };
+
+//	accept { diff(a)	};
+
+	accept { a == 1+2/3*4 && 5 || 6 - 7 && diff(a) && diff(formula.a) && diff(1+2+3, 2+4+6)	};
+}
+
+event formula2
+{
+	use { int x, int y, int z };
+
+//	accept { diff(a)	};
+
+//	accept { a == 1+2/3*4 && 5 || 6 - 7 && diff(a) && diff(formula.a) && diff(1+2+3, 2+4+6)	};
+}
+
+
+event e1
+{
+	lasts bla;
+	
+	use { int a, float jaja };
+
+	lasts MY_DURATION;
+	
+	lasts until c1, c1, c1, e2;
+	
+		
+	
+	accept { jaja == 5 || jaja == bla };
+}
+
+
+event e2
+{
+	use { int a };
+}
+
+event e3
+{
+	use { int a, pos hello };
+}
+*/
+/*
+
+complex c1
+{
+	payload {
+		int q = sum(e1.a),
+		int r = bla
+	};
+	
+	lasts bla;
+
+	group e2.a;
+/+	
+	detect e1 and e2 or e3 during e1  
+	where e1.a == 6 && sum(e1@9.jaja) == 7 && e3.hello == 4 || e1.bla == 3
+	in [ MY_DURATION ];
+
+	
+	detect e1 and e2 or e3 during e1  
+	where e1.a == 6 && sum(e1@9.jaja) == 7 && e3.hello == 4 || e1.bla == 3
+	in [ 6 hours ];
+	
+
+	
+	detect e1 and e2 or e3 during e1  
+	where e1.a == 6 && sum(e1@9.jaja) == 7 && e3.hello == 4 || e1.bla == 3
+	in [ T_TIME, MY_DURATION ];
+
+	detect e1 and e2 or e3 during e1  
+	where e1.a == 6 && sum(e1@9.jaja) == 7 && e3.hello == 4 || e1.bla == 3
+	in [ 18:15, 5 minutes ];
++/
+	
+	detect e1   
+	where e1.a == 6 && sum(e1@9.jaja) == 7 && e3.hello == 4 || bla == 3
+	in [ 7 ];
+	
+	detect e1 and e1
+	where e1.a == 6 && sum(e1@9.jaja) == 7 && e3.hello == 4 || bla == 3
+	in [ 8 e1 ];
+
+	detect e1   
+	where e1.a == 6 && sum(e1@9.jaja) == 7 && e3.hello == 4 || bla == 3
+	in [ hello e3 ];
+
+	
+	detect e1   
+	where e1.a == 6 && sum(e1@9.jaja) == 7 && e3.hello == 4 || bla == 3
+	in [ jaHallo ]; //this is a sliding time window
+}
+
+
+complex c_a
+{
+	detect e1 and e2 or e3 during e1  
+	where e1.a == 6 && sum(e1@9.jaja) == 7 && e3.hello == 4 || bla == 3
+	in [ MY_DURATION ];
+}
+
+complex c_b
+{
+	detect e1 and e2 or e3 during e1  
+	where e1.a == 6 && sum(e1@9.jaja) == 7 && e3.hello == 4 || bla == 3
+	in [ 6 hours ];
+}
+
+complex c_c
+{	
+	detect e1 and e2 or e3 during e1  
+	where e1.a == 6 && sum(e1@9.jaja) == 7 && e3.hello == 4 || bla == 3
+	in [ T_TIME, MY_DURATION ];
+}
+
+complex c_d
+{
+	detect e1 and e2 or e3 during e1  
+	where e1.a == 6 && sum(e1@9.jaja) == 7 && e3.hello == 4 || bla == 3
+	in [ 18:15, 5 minutes ];
+}
+
+complex c_e
+{	
+	detect e1   
+	where e1.a == 6 && sum(e1@9.jaja) == 7 && e3.hello == 4 || bla == 3
+	in [ 7 ];
+}
+
+complex c_f
+{	
+	detect e1 and e1
+	where e1.a == 6 && sum(e1@9.jaja) == 7 && e3.hello == 4 || bla == 3
+	in [ 8 e1 ];
+}
+
+complex c_g
+{
+	detect e1   
+	where e1.a == 6 && sum(e1@9.jaja) == 7 && e3.hello == 4 || bla == 3
+	in [ hello e3 ];
+}
+
+complex c_h
+{	
+	detect e1   
+	where e1.a == 6 && sum(e1@9.jaja) == 7 && e3.hello == 4 || bla == 3
+	in [ jaHallo ]; //this is a sliding time window
+}
+*/
+/*
+
+external int X = 4;
+
+event e1
+{
+	use { int a, int b, int c };
+}
+
+event e2
+{
+	use { int b, int c, int d };
+}
+
+event DUPLICATE
+{
+	use { int ddb, int ddc, int ddd };
+}
+
+event DUPLICATE
+{
+	use { int b, int c, int d };
+}
+
+complex x1
+{
+	payload { int q = 3, char r = 4 };
+	
+//	group first.next;
+	
+	detect e2;
+	
+	detect myEvent // must REF to definition
+	where e4.a == 4 && x + y + z == 5;
+		//a must REF to a definition
+		
+}
+
+
+complex x2
+{
+	detect e1 and e2
+	where e1.a == e2.a && b;
+}
+
+
+complex x3
+{
+	detect x1
+	where x1.bv == 3 && DUPLICATE.a && DUPLICATE.dummy;
+}
+
+*/
+
+/*
+----
+Event reference or Complex Event reference
+(3)	"ref"
+(4)	"ref.xxx" 	(xxx is an attribute)
+----	
+	
+
+Symbol-table:
+
+(1) Store the reference, then resolve the parent (by using the AST)
+	- GROUP -> assumed to be the event used in the detect. If more than
+		one event for DETECT, then it cannot resolve it, because ambiguous ->ERR
+	- part of an expression:
+		- if part of detect -> same as above.
+		- if part of payload -> 
+	
+*/

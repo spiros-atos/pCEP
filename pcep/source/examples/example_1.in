@@ -1,0 +1,3 @@
+1 TemperatureReading int SensorId 10 string Description "Temperature sensor placed in Madrid, central train station" pos Position 7.675946\45.069258 time ReadingTime 2016-05-13T11:47:37Z float Value 25.7
+1 TemperatureReading int SensorId 11 string Description "Temperature sensor placed in Seville, central train station" pos Position 45.675946\100.069258 time ReadingTime 2016-05-13T11:47:37Z float Value 35.7
+1 TemperatureReading int SensorId 14 string Description "Temperature sensor placed in Madrid, airport" pos Position 8.675946\47.069258 time ReadingTime 2016-05-13T11:47:37Z float Value 28.7

@@ -1,0 +1,60 @@
+/*
+ * Copyright (C) 2019  Atos Spain SA. All rights reserved.
+ *
+ * This file is part of pCEP.
+ *
+ * pCEP is free software: you can redistribute it and/or modify it under the
+ * terms of the Apache License, Version 2.0 (the License);
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * The software is provided "AS IS", without any warranty of any kind, express or implied,
+ * including but not limited to the warranties of merchantability, fitness for a particular
+ * purpose and noninfringement, in no event shall the authors or copyright holders be
+ * liable for any claim, damages or other liability, whether in action of contract, tort or
+ * otherwise, arising from, out of or in connection with the software or the use or other
+ * dealings in the software.
+ *
+ * See README file for the full disclaimer information and LICENSE file for full license
+ * information in the project root.
+ *
+ * Authors:  Atos Research and Innovation, Atos SPAIN SA
+ */
+
+/*
+Definition of temperature event.
+It has the following attributes:
+- a SensorId: To identify the sensor
+- a Description: To add some information about the sensor
+- a Position: Where the sensor is placed
+- a ReadingTime: When the sensor has performed this reading
+- a Value: The temperature value
+The accept statement allows filtering. In this case, we are going to consider only some sensor Ids
+*/
+event TemperatureReading
+{
+    use
+    {
+        int SensorId,
+        string Description,
+				pos Position,
+				time ReadingTime,
+        float Value
+    };
+
+    accept { SensorId > 10 };
+}
+
+/*
+This complex definition allows calculating the average temperature.
+- The detect statement defines that this Complex will consider only as input the TemperatureReading signal
+- The where statement allows also to filter some values. In this case, we only want to consider value greater than -10
+- The payload defines the attributes of the complex event. In this examples, we only want to calculate the temperature average.
+*/
+complex AverageTemperature
+{
+	payload {
+		float average = avg(Value)
+   	};
+   	detect TemperatureReading where (Value > -10) in [10];
+}

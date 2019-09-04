@@ -1,0 +1,13 @@
+detect_obj_loc+avg.dolce
+1 obj_loc int obj_id 1 string type L float loc_x 0.3122 float loc_y 9.78029999999998 float t 14770104522000
+1 obj_loc int obj_id 2 string type L float loc_x 9.51219999999998 float loc_y 0.5803 float t 14770104522000
+1 obj_loc int obj_id 3 string type L float loc_x 16.8122000000002 float loc_y 0.3803 float t 14770104522000
+1 obj_loc int obj_id 1 string type L float loc_x 0.3122 float loc_y 9.88029999999998 float t 14770104523000
+1 obj_loc int obj_id 2 string type L float loc_x 9.61219999999998 float loc_y 0.5803 float t 14770104523000
+1 obj_loc int obj_id 3 string type L float loc_x 16.6122000000002 float loc_y 0.3803 float t 14770104523000
+1 obj_loc int obj_id 1 string type L float loc_x 0.3122 float loc_y 9.98029999999998 float t 14770104524000
+1 obj_loc int obj_id 2 string type L float loc_x 9.71219999999998 float loc_y 0.5803 float t 14770104524000
+1 obj_loc int obj_id 3 string type L float loc_x 16.4122000000002 float loc_y 0.3803 float t 14770104524000
+1 obj_loc int obj_id 1 string type L float loc_x 0.3122 float loc_y 10.0803 float t 14770104525000
+1 obj_loc int obj_id 2 string type L float loc_x 9.81219999999998 float loc_y 0.5803 float t 14770104525000
+1 obj_loc int obj_id 3 string type L float loc_x 16.2122000000002 float loc_y 0.3803 float t 14770104525000

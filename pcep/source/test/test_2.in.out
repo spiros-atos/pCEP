@@ -1,0 +1,17 @@
+2 OutputEventTimeWindow int theCount 1 int theGroup 4
+2 OutputEventTupleWindow int theCount 1 int theGroup 4
+2 OutputEventTimeWindow int theCount 1 int theGroup 2
+2 OutputEventTupleWindow int theCount 1 int theGroup 2
+2 OutputEventTimeWindow int theCount 2 int theGroup 4
+2 OutputEventTupleWindow int theCount 2 int theGroup 4
+2 OutputEventTimeWindow int theCount 3 int theGroup 4
+2 OutputEventTupleWindow int theCount 3 int theGroup 4
+2 OutputEventTimeWindow int theCount 2 int theGroup 2
+2 OutputEventTupleWindow int theCount 2 int theGroup 2
+2 OutputEventTimeWindow int theCount 1 int theGroup 1
+2 OutputEventTupleWindow int theCount 1 int theGroup 1
+2 OutputEventTimeWindow int theCount 4 int theGroup 4
+2 OutputEventTupleWindow int theCount 2 int theGroup 4
+2 OutputEventTimeWindow int theCount 3 int theGroup 2
+2 OutputEventTupleWindow int theCount 2 int theGroup 2
+7 Shutdown int Result 0 

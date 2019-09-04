@@ -1,0 +1,20 @@
+
+NOTE: the content of this file serves as input for the elaboration of formal documentation
+	related to this plugin.
+	
+----------------------------------------------------------------
+
+
+Description:
+	This plugin decodes events in the Simple Event Format and converts them to the internal SOL/CEP format.
+	
+	
+Parameters:
+
+	None.
+
+Error codes:
+
+	100		Cannot decode the event.
+
+	Error codes are found in the log file.

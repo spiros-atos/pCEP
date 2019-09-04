@@ -1,0 +1,137 @@
+event E {3}
+{
+	payload 
+	{
+		{ SensorId S1, int },
+		{ Location L, pos }
+	}
+	accept { inarea(12.33\123.23\100, L) }
+	accept { (S1 == 3) }
+}
+
+
+
+event E2 : E
+{
+	accept { S1 == 7 }
+}
+
+
+
+======================================================================
+Scenario 1.
+
+configurable TOTAL_AMOUNT { integer : 1000 };
+configurable WINDOW { timewindow: 10 days };
+
+
+event Withdrawal { 100 }	//root-event
+{
+	use { Type, Amount, CustomerId };
+	
+	delegate;	// delegate acceptance to derived pseudo-events. If omitted, this event will be used.
+}
+
+
+event ATMWithdrawal : Withdrawal  //pseudo-event
+{
+	accept { (Type == 2) };
+}
+
+
+event CheckWithdrawal : Withdrawal
+{
+	accept { (Type == 1) };
+}
+
+
+complex Alarm
+{
+	payload { 223 } 
+	{
+		{ bla, integer : Amount } },
+		{ bli { float: 234.44 } }
+	};
+	
+	group CustomerId;
+	
+	detect CheckWithdrawal or ATMWithdrawal
+	where sum(Withdrawal.Amount) > TOTAL_AMOUNT
+	in WINDOW;
+}
+
+
+
+===================================================================================
+Scenario 2.
+
+event Purchase { 10 }
+{
+	use { Location, Amount, CreditCardNumber };
+}
+
+complex PurchaseAlarm
+{
+	payload { .... }
+	
+	group CreditCardNumber;
+	
+	detect Purchase
+	where count(Purchase) >= 2 && (Purchase$$.Location - Purchase$1.Location > 200)
+	in [1 hour]
+}
+
+==================================================================================
+Scenario 3.
+
+
+event DowJones { 1 }
+{
+	use { Rate };
+}
+
+event Forex { 2 }
+{
+	use { Rate };
+}
+
+complex DowJones2
+{
+	detect DowJones
+	where diff(Rate, CLOSING_RATE) > X%
+}
+
+complex Forex2
+{
+	detect Forex
+	where diff(Rate, CLOSING_RATE) > X%
+}
+
+complex Alarm
+{
+	payload { ... }
+	
+	detect DowJones2 or Forex2;
+	// No time-span given - the "and" statement means anytime the two events occur
+
+}
+
+
+
+
+===================================================
+
+ detect !(Login and Order and PageRequest) in [5 minutes];
+ detect !Login and !Order and !PageRequest
+ 
+ This detects that absence of all these events ("and") in the last 5 minutes
+ 
+ compare this to:
+ 
+ detect !(Login or Order or PageRequest) in [5 minutes];
+ 
+ This detects that absence of any of these events in the last 
+ 
+ 
+ 
+ 

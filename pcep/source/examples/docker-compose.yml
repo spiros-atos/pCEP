@@ -1,0 +1,14 @@
+bcep:
+    image: danielcalvo/cep-udp
+    volumes:
+      - ./:/tmp/examples
+    net: "host"
+    ports:
+      - "29654:29654/udp"
+    command: -d /tmp/examples/detect_1.dolce
+connectors:
+    build: ./python
+    volumes:
+      - ./:/tmp/examples
+    command: python2 /tmp/examples/python/udp_example.py /tmp/examples/example_1.in
+    net: "host"

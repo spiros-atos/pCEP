@@ -1,0 +1,78 @@
+/*
+ * Copyright (C) 2019  Atos Spain SA. All rights reserved.
+ *
+ * This file is part of pCEP.
+ *
+ * pCEP is free software: you can redistribute it and/or modify it under the
+ * terms of the Apache License, Version 2.0 (the License);
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * The software is provided "AS IS", without any warranty of any kind, express or implied,
+ * including but not limited to the warranties of merchantability, fitness for a particular
+ * purpose and noninfringement, in no event shall the authors or copyright holders be
+ * liable for any claim, damages or other liability, whether in action of contract, tort or
+ * otherwise, arising from, out of or in connection with the software or the use or other
+ * dealings in the software.
+ *
+ * See README file for the full disclaimer information and LICENSE file for full license
+ * information in the project root.
+ *
+ * Authors:  Atos Research and Innovation, Atos SPAIN SA
+ */
+
+event obj_loc 	// 1 obj_loc
+{
+	use
+	{
+		int obj_id, 	// int obj_id 1 
+		string type, 	// string type L
+		float loc_x, 	// float loc_x 0.3122 
+		float loc_y, 	// float loc_y 0.5803 
+		float t, 		// float t 14770104430000 
+		float truth_x, 	// float truth_x 0.6 
+		float truth_y, 	// float truth_y 0.6  
+		float truth_vx, // float truth_vx 5.1999 
+		float truth_vy	// float truth_vy 0
+	};
+
+	accept { type == "L" }; 	// lidar
+}
+
+event amb_temp
+{
+	use
+	{
+		float Id,
+		string R,
+		float V,
+		string foi
+	};
+
+	accept { V > -400 };
+}
+
+
+complex collision_with_moving_object
+{
+
+	payload {
+		float loc_y	= obj_loc.loc_y,
+		int obj_id = obj_loc.obj_id,
+		string type = obj_loc.type,
+		float loc_x = obj_loc.loc_x, 
+		float loc_y = obj_loc.loc_y, 
+		float t = obj_loc.t 		
+	};
+
+	detect obj_loc where coll(loc_x) > 0.0 in [1];
+}
+
+complex average_temp
+{
+	group foi;
+	payload {
+		string foi=amb_temp.foi
+	};
+	detect amb_temp where (avg(V)>-400) in [10];
+}

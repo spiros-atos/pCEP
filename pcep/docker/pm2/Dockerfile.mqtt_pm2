@@ -1,0 +1,26 @@
+FROM danielcalvo/cep-mqtt
+
+#PM2 setup
+RUN apt-get update
+RUN apt-get install -y nodejs npm
+
+#NPM setup
+
+RUN npm install -g pm2
+RUN ln -s /usr/bin/nodejs /usr/bin/node
+
+#Web interface for pm2
+RUN npm install -g pm2-gui
+
+#Package manager is cleaned
+RUN apt-get remove npm -y && apt-get clean -y && apt-get autoclean -y && apt-get -y autoremove
+RUN rm -rf /var/lib/apt/lists/*
+
+#Command to be executed when the container is launched
+# An scropt is used instead of launching directly pm2. If we would do this, the image will exit after finishing
+# the execution of the command, that's just after launching the CEP with PM2. The script will launch CEP with
+# PM" and after this, it will tail the log
+ADD ./docker/pm2/run.sh /usr/local/bin/run
+RUN chmod +x /usr/local/bin/run
+
+ENTRYPOINT ["/usr/local/bin/run"]

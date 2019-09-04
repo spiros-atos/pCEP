@@ -1,0 +1,46 @@
+ FROM resin/rpi-raspbian
+ 
+ #Requirements to compile bcep. They will be uninstalled after finishing the building
+ RUN apt-get update
+ RUN apt-get install -y g++
+ RUN apt-get install -y make
+ 
+ #NODE setup
+ RUN apt-get install -y nodejs npm
+
+ #NPM setup
+ RUN npm install -g pm2
+ RUN ln -s /usr/bin/nodejs /usr/bin/node
+
+ #PM2 setup
+ RUN sudo npm install pm2@latest -g
+ RUN sudo npm install -g pm2-gui
+  
+ #Sources of BCEP are copied to the container
+ RUN mkdir cep
+ ADD ./source/ cep/
+ WORKDIR cep
+ #BCEP folder is cleaned
+ RUN make distclean
+ #BCEP is compiled
+ RUN make
+
+ #BCEP intermediary objects are deleted
+ RUN make clean
+ #Compiler is uninstalled
+ RUN apt-get purge -y make
+ RUN apt-get purge -y g++
+ #Package manager is cleaned
+ RUN apt-get clean -y && apt-get autoclean -y && apt-get -y autoremove
+ RUN rm -rf /var/lib/apt/lists/*
+ #Unneeded folders and files are deleted
+ RUN rm -rf src outgoing UnitTest incoming Bin obj Makefile Rakefile#
+
+ EXPOSE 8088
+ EXPOSE 29654
+ EXPOSE 50000
+
+ ADD ./docker/rpi/init.sh /cep 
+ RUN chmod +x /cep/init.sh
+
+ ENTRYPOINT ["./init.sh"]

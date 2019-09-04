@@ -1,0 +1,50 @@
+ FROM resin/rpi-raspbian
+ 
+ RUN apt-get update
+
+ #Requirements to compile bcep. They will be uninstalled after finishing the building
+ RUN apt-get install -y g++
+ RUN apt-get install -y make
+
+ #NODE setup
+ RUN apt-get install -y nodejs npm
+
+ #NPM setup
+ RUN npm install -g pm2
+ RUN ln -s /usr/bin/nodejs /usr/bin/node
+
+ #PM2 setup
+ RUN sudo npm install pm2@latest -g
+ RUN sudo npm install -g pm2-gui
+  
+ #Sources of BCEP are copied to the container
+ COPY ./source/ cep/
+ WORKDIR cep
+ #BCEP folder is cleaned
+ RUN make distclean
+
+ #Mosquitto setup
+ RUN apt-get install libmosquitto-dev -y
+ RUN ln -sf /usr/lib/libmosquitto.so.1 /usr/lib/libmosquitto.so
+ RUN ln -sf /usr/lib/libmosquitto.so.1 /usr/lib/libmosquitto.so.1.0
+
+ #BCEP is compiled
+ RUN make mqtt
+
+ #BCEP intermediary objects are deleted
+ RUN make clean
+ #Compiler is uninstalled
+ RUN apt-get purge -y make
+ RUN apt-get purge -y g++
+ #Package manager is cleaned
+ RUN apt-get clean -y && apt-get autoclean -y && apt-get -y autoremove
+ RUN rm -rf /var/lib/apt/lists/*
+ #Unneeded folders and files are deleted
+ RUN rm -rf src outgoing UnitTest incoming Bin obj Makefile Rakefile
+
+ EXPOSE 1883
+
+ ADD ./docker/rpi/init.sh /cep 
+ RUN chmod +x /cep/init.sh
+ 
+ ENTRYPOINT ["./init.sh"]

@@ -1,0 +1,27 @@
+2 collision_with_moving_object float t 14770104172544.000000 float loc_y 9.680300 float loc_x 0.312200 string type "L" int obj_id 1 float loc_y 9.680300
+2 collision_with_moving_object float t 14770104172544.000000 float loc_y 9.780300 float loc_x 0.312200 string type "L" int obj_id 1 float loc_y 9.780300
+2 collision_with_moving_object float t 14770104172544.000000 float loc_y 9.880300 float loc_x 0.312200 string type "L" int obj_id 1 float loc_y 9.880300
+2 collision_with_moving_object float t 14770104172544.000000 float loc_y 9.980300 float loc_x 0.312200 string type "L" int obj_id 1 float loc_y 9.980300
+2 collision_with_moving_object float t 14770104172544.000000 float loc_y 10.080300 float loc_x 0.312200 string type "L" int obj_id 1 float loc_y 10.080300
+2 collision_with_moving_object float t 14770104172544.000000 float loc_y 10.180300 float loc_x 0.312200 string type "L" int obj_id 1 float loc_y 10.180300
+2 collision_with_moving_object float t 14770104172544.000000 float loc_y 10.280300 float loc_x 0.312200 string type "L" int obj_id 1 float loc_y 10.280300
+2 collision_with_moving_object float t 14770104172544.000000 float loc_y 10.380300 float loc_x 0.312200 string type "L" int obj_id 1 float loc_y 10.380300
+2 collision_with_moving_object float t 14770104172544.000000 float loc_y 10.480300 float loc_x 0.312200 string type "L" int obj_id 1 float loc_y 10.480300
+2 collision_with_moving_object float t 14770104172544.000000 float loc_y 10.580300 float loc_x 0.312200 string type "L" int obj_id 1 float loc_y 10.580300
+2 collision_with_moving_object float t 14770104172544.000000 float loc_y 10.680300 float loc_x 0.312200 string type "L" int obj_id 1 float loc_y 10.680300
+2 collision_with_moving_object float t 14770104172544.000000 float loc_y 10.780300 float loc_x 0.312200 string type "L" int obj_id 1 float loc_y 10.780300
+2 collision_with_moving_object float t 14770104172544.000000 float loc_y 10.880300 float loc_x 0.312200 string type "L" int obj_id 1 float loc_y 10.880300
+2 collision_with_moving_object float t 14770104172544.000000 float loc_y 10.980300 float loc_x 0.312200 string type "L" int obj_id 1 float loc_y 10.980300
+2 collision_with_moving_object float t 14770104172544.000000 float loc_y 11.080300 float loc_x 0.312200 string type "L" int obj_id 1 float loc_y 11.080300
+2 collision_with_moving_object float t 14770104172544.000000 float loc_y 11.180300 float loc_x 0.312200 string type "L" int obj_id 1 float loc_y 11.180300
+2 collision_with_moving_object float t 14770104172544.000000 float loc_y 11.280300 float loc_x 0.312200 string type "L" int obj_id 1 float loc_y 11.280300
+2 collision_with_moving_object float t 14770104172544.000000 float loc_y 11.380300 float loc_x 0.312200 string type "L" int obj_id 1 float loc_y 11.380300
+2 collision_with_moving_object float t 14770104172544.000000 float loc_y 11.480300 float loc_x 0.312200 string type "L" int obj_id 1 float loc_y 11.480300
+2 collision_with_moving_object float t 14770104172544.000000 float loc_y 11.580300 float loc_x 0.312200 string type "L" int obj_id 1 float loc_y 11.580300
+2 collision_with_moving_object float t 14770104172544.000000 float loc_y 11.680300 float loc_x 0.312200 string type "L" int obj_id 1 float loc_y 11.680300
+2 collision_with_moving_object float t 14770104172544.000000 float loc_y 11.780300 float loc_x 0.312200 string type "L" int obj_id 1 float loc_y 11.780300
+2 collision_with_moving_object float t 14770104172544.000000 float loc_y 11.880300 float loc_x 0.312200 string type "L" int obj_id 1 float loc_y 11.880300
+2 collision_with_moving_object float t 14770104172544.000000 float loc_y 11.980300 float loc_x 0.312200 string type "L" int obj_id 1 float loc_y 11.980300
+2 collision_with_moving_object float t 14770104172544.000000 float loc_y 12.080300 float loc_x 0.312200 string type "L" int obj_id 1 float loc_y 12.080300
+2 collision_with_moving_object float t 14770104172544.000000 float loc_y 12.180300 float loc_x 0.312200 string type "L" int obj_id 1 float loc_y 12.180300
+7 Shutdown int Result 0 
